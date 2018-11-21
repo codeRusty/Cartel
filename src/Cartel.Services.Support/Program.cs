@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace Cartel.Services.Order
+namespace Cartel.Services.Support
 {
     public class Program
     {
@@ -17,7 +17,6 @@ namespace Cartel.Services.Order
             CreateWebHostBuilder(args).Build().Run();
         }
 
-		//
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
