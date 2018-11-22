@@ -1,13 +1,13 @@
-﻿using Cartel.Api.Handlers;
-using Cartel.Common.Events;
+﻿using Cartel.Common.Commands;
 using Cartel.Common.RabbitMq;
+using Cartel.Services.Activities.Handlers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Cartel.Api
+namespace Cartel.Services.Activities
 {
     public class Startup
     {
@@ -23,7 +23,8 @@ namespace Cartel.Api
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddRabbitMq(Configuration);
-            services.AddScoped<IEventHandler<ActivityCreated>, ActivityCreatedHandler>();
+            services.AddScoped<ICommandHandler<CreateActivity>, CreateActivityHandler>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
